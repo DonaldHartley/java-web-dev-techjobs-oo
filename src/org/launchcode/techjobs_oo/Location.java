@@ -2,26 +2,15 @@ package org.launchcode.techjobs_oo;
 
 import java.util.Objects;
 
-public class Location {
+public class Location extends JobField{
   private int id;
   private static int nextId = 1;
   private String value;
   
-  public Location() {
+  public Location(String aValue) {
+    super(aValue);
     id = nextId;
     nextId++;
-  }
-  
-  public Location(String aValue) {
-    this();
-    this.value = aValue;
-  }
-  
-  // Custom toString, equals, and hashCode methods:
-  
-  @Override
-  public String toString() {
-    return value;
   }
   
   @Override
@@ -37,17 +26,8 @@ public class Location {
     return Objects.hash(getId());
   }
   
-  // Getters and Setters:
-  
   public int getId() {
     return id;
   }
   
-  public String getValue() {
-    return value;
-  }
-  
-  public void setValue(String value) {
-    this.value = value;
-  }
 }

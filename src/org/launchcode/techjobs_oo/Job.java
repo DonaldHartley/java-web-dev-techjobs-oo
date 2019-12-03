@@ -1,14 +1,11 @@
 package org.launchcode.techjobs_oo;
 
-import java.lang.reflect.Field;
 import java.util.Objects;
 
 public class Job {
-  
   private int id;
   private static int nextId = 1;
-  
-  private String name;
+  private Name name;
   private Employer employer;
   private Location location;
   private PositionType positionType;
@@ -19,7 +16,7 @@ public class Job {
     nextId++;
   }
   
-  public Job(String aName, Employer aEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency){
+  public Job(Name aName, Employer aEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency){
     this();
     name = aName;
     employer = aEmployer;
@@ -45,70 +42,49 @@ public class Job {
     return id;
   }
   
-  public String getName() {
+  public Name getName() {
     return name;
   }
   
-  public void setName(String name) {
-    this.name = name;
+  public void setName(Name aName) {
+    name = aName;
   }
   
   public Employer getEmployer() {
     return employer;
   }
   
-  public void setEmployer(Employer employer) {
-    this.employer = employer;
+  public void setEmployer(Employer aEmployer) {
+    employer = aEmployer;
   }
   
   public Location getLocation() {
     return location;
   }
   
-  public void setLocation(Location location) {
-    this.location = location;
+  public void setLocation(Location aLocation) {
+    location = aLocation;
   }
   
   public PositionType getPositionType() {
     return positionType;
   }
   
-  public void setPositionType(PositionType positionType) {
-    this.positionType = positionType;
+  public void setPositionType(PositionType aPositionType) {
+    positionType = aPositionType;
   }
   
   public CoreCompetency getCoreCompetency() {
     return coreCompetency;
   }
   
-  public void setCoreCompetency(CoreCompetency coreCompetency) {
-    this.coreCompetency = coreCompetency;
+  public void setCoreCompetency(CoreCompetency aCoreCompetency) {
+    coreCompetency = aCoreCompetency;
   }
   
   @Override
   public String toString() {
     String stringToReturn;
-    if (name==null){
-      stringToReturn = "OOPS! This job does not seem to exist.";
-      System.out.println(name instanceof String);
-      return stringToReturn;
-    }
-    
-    if (name=="") {
-      name="Data not available";
-    }
-    if (employer.getValue()=="") {
-      employer.setValue("Data not available");
-    }
-    if (location.getValue()=="") {
-      location.setValue("Data not available");
-    }
-    if (positionType.getValue()=="") {
-      positionType.setValue("Data not available");
-    }
-    if (coreCompetency.getValue()=="") {
-      coreCompetency.setValue("Data not available");
-    }
     
     stringToReturn = "\n" +
         "ID: " + id + "\n" +
@@ -117,6 +93,10 @@ public class Job {
         "Location: " + location + "\n" +
         "Position Type: " + positionType + "\n" +
         "Core Competency: " + coreCompetency + "\n";
+  
+    if (name==null){
+      stringToReturn = "OOPS! This job does not seem to exist.";
+    }
     
     return stringToReturn;
   }
